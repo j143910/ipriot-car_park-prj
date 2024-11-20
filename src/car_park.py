@@ -15,7 +15,7 @@ class CarPark:
 
     @property
     def available_bays(self):
-        return self.capacity - len(self.plates) if len(self.plates) > self.capacity else 0
+        return self.capacity - len(self.plates) if len(self.plates) < self.capacity else 0
 
     def register(self, component):
         if not isinstance(component, (Sensor, Display)):
