@@ -4,7 +4,7 @@ from display import Display
 
 
 def main():
-    car_park = CarPark("moondalup", 100, log_file="moondalup.log")
+    car_park = CarPark("moondalup", 100, log_file="moondalup.txt")
     entry_sensor = EntrySensor(1, car_park, True)
     exit_sensor = ExitSensor(2, car_park, True)
     display = Display(1, car_park, "Welcome to Moondalup", True)
