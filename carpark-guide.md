@@ -65,19 +65,19 @@ This guide provides detailed step-by-step instructions for completing the projec
 **Additional evidencing:**
 Include a screenshot of your GitHub repository **after** you have pushed your initial commit.
 
-```markdown
+
 ![Initial commit](images/mu_image.png)
-```
+
 
 ### Identify classes, methods, and attributes
 
 After reading the task requirements, you should be able to identify the classes, methods, and attributes required for the car park system. Complete the following table with the classes, methods, and attributes you must implement.
 
-| Class Name | Attributes | Methods |
-| ---------- | ---------- | ------- |
-| `CarPark`    |            |         |
-| `Sensor`     |            |         |
-| `Display`    |            |         |
+| Class Name | Attributes                                    | Methods                                     |
+|------------|-----------------------------------------------|---------------------------------------------|
+| `CarPark`  | location, capacity, plates, sensors, displays | add_car, remove_car, update_display         |
+| `Sensor`   | id, is_active                                 | detect_vehicle, scan_plate, update_car_park |
+| `Display`  | id, message, is_on                            | update                                      |
 
 **Additional evidencing:**
 Ensure you have completed the previous table and include at least two methods and attributes for each.
@@ -105,9 +105,9 @@ Ensure you have completed the previous table and include at least two methods an
 **Additional evidencing:**
 Include a screenshot of your GitHub repository `src/` directory **after** you have pushed your changes.
 
-```markdown
+
 ![Added stubs for classes](images/stubs-for-classes.png)
-```
+
 
 ### Add constructors and attributes to the classes
 
@@ -212,6 +212,7 @@ Ensure that you have completed the previous steps and created the appropriate ta
 s1
 s2
 ```
+![Confirmation of Added Tags](images/git-tag.png)
 
 ### Relate the classes
 
@@ -369,12 +370,14 @@ You may want to see the number of available bays, the current temperature, and t
 
 Now consider, between the `CarPark`, `Sensor`, and `Display` classes, which class is responsible for each piece of information? There's no right or wrong answer here. But you should be able to justify your answer.
 
->Q. Which class is responsible for the number of available bays (and why)?
->
->Q. Which class is responsible for the current temperature (and why)?
->
->Q. Which class is responsible for the time (and why)?
->
+>Q. Which class is responsible for the number of available bays (and why)?<br>
+   > CarPark as a car park consists of many bays
+> 
+>Q. Which class is responsible for the current temperature (and why)?<br>
+> CarPark as this allows all displays to get temperature from one location
+> 
+>Q. Which class is responsible for the time (and why)?<br>
+> CarPark as this will allow for one source of truth for the current time
 --------
 
 ##### Detour: implement available bays
@@ -445,26 +448,26 @@ This time, we will push the tag to the remote repository:
 
 Add a screenshot of the GitHub repository after pushing the tag, showing the CarPark class with the new methods:
 
-```markdown
+
 ![Added methods to the car park class](images/methods-to-car-park.png)
-```
+
 
 Answer the following questions:
 > **Review Questions**
 >
 > 1. **Which class is responsible for each of the following pieces of information (and why)?**
 >    - _The number of available bays_
->      `Answer here...`
+>      `CarPark as a car park consists of many bays`
 >    - _The current temperature_
->      `Answer here...`
+>      `CarPark as this allows all displays to get temperature from one location`
 >    - _The time_
->      `Answer here...`
+>      `CarPark as this will allow for one source of truth for the current time`
 >
 > 2. **What is the difference between an attribute and a property?**
->    `Answer here...`
+>    `An attribute contains data and a property is a method that appears outside as a attribute`
 >
 > 3. **Why do you think we used a dictionary to hold the data we passed the display? List at least one advantage and one disadvantage of this approach.**
->    `Answer here...`
+>    `A dictionary allows for adding additional attributes to be added in the future however it requires knowledge of the innerworkings of the display class to know what data is required`
 
 #### Add a detect vehicle method to the Sensor class
 
@@ -707,9 +710,9 @@ if __name__ == "__main__":
 
 1. Add a screenshot of the output of the unit tests. If any failed, add a screenshot of the error message and a screenshot after you have fixed the errors:
 
-   ```markdown
-   ![Unit tests](images/unit-tests.png)
-   ```
+![Unit tests](images/unit-test-car_park-failed.png)
+![Unit tests](images/unit-tests.png)
+
 
 2. Commit your changes to the local repository. Tag the commit with `s6` so your lecturer can find it:
 3. Push the tag to the remote repository:
@@ -766,9 +769,10 @@ Next, we'll create tests for the `Display` class. These tests will test the `__i
 
 1. Add a screenshot of the output of the unit tests. If any failed, add a screenshot of the error message and a screenshot after you have fixed the errors:
 
-   ```markdown
-   ![Unit tests](images/unit-tests-display.png)
-   ```
+
+![Unit tests](images/unit-tests-display-failed.png)
+![Unit tests](images/unit-tests-display.png)
+
 
 2. Commit your changes to the local repository. Tag the commit with `s7` so your lecturer can find it.
 3. Push the tag to the remote repository.
@@ -1036,9 +1040,9 @@ We are going to do the latter:
 **Additional evidencing:**
 After you have merged your branch to main, push to your remote with the s10 tag. Add a screenshot of the GitHub repository after pushing the tag, showing the CarPark class with the new methods:
 
-```markdown
-![Added methods to the car park class](images/methods-to-car-park.png)
-```
+
+![Added methods to the car park class](images/config-methods-to-car-park.png)
+
 
 ### Final step: build a car park!
 
@@ -1073,9 +1077,9 @@ In your final submission, you must include any files you created or modified. Th
 
 1. Add a screenshot of the output of the `main.py` file:
 
-   ```markdown
-   ![Main.py output](images/main-py.png)
-   ```
+
+![Main.py output](images/main-py.png)
+
 
 2. Commit your changes to the local repository. Tag the commit with `v1`, so your lecturer can find it. Ensure the commit includes the log and config files (though you would typically ignore them).
 3. Push the tag to the remote repository.
