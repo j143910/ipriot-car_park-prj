@@ -6,7 +6,9 @@ from car_park import CarPark
 class TestCarPark(unittest.TestCase):
     def setUp(self):
         self.log_file_path = "new_log.txt"
-        self.car_park = CarPark("123 Example Street", 100, log_file=self.log_file_path)
+        self.config_file_path = "config.json"
+        self.car_park = CarPark("123 Example Street", 100, log_file=self.log_file_path, config_file=self.config_file_path)
+        self.car_park.write_config()
 
     def test_car_park_initialized_with_all_attributes(self):
         self.assertIsInstance(self.car_park, CarPark)
@@ -72,8 +74,15 @@ class TestCarPark(unittest.TestCase):
         self.assertIn("exited", last_line)  # check description
         self.assertIn("\n", last_line)  # check entry has a new line
 
+    def test_initialize_car_park_with_json(self):
+        new_carpark = CarPark.from_config(self.config_file_path)
+        self.assertEqual(new_carpark.location, self.car_park.location)
+        self.assertEqual(new_carpark.capacity, self.car_park.capacity)
+        self.assertEqual(new_carpark.log_file, self.car_park.log_file)
+
     def tearDown(self):
         Path(self.log_file_path).unlink(missing_ok=True)
+        Path(self.config_file_path).unlink(missing_ok=True)
 
 
 if __name__ == "__main__":
