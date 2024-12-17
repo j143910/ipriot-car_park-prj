@@ -61,6 +61,11 @@ This guide provides detailed step-by-step instructions for completing the projec
       git commit -m "Initial commit"
       git push
       ```
+12. Create a branch for your work:
+      ```bash
+      git switch <<your-work-branch>>
+      ```
+
 
 **Additional evidencing:**
 Include a screenshot of your GitHub repository **after** you have pushed your initial commit.
@@ -960,10 +965,10 @@ Let's now implement the functionality to make the unit tests pass (if you have w
 **Additional evidencing:**
 
 1. Add and commit your changes to the branch
-2. Now we are going to merge the branch back into the main branch. First, switch to the main branch:
+2. Now we are going to merge the branch back into ~~the main branch~~ your-work-branch. First, switch to the main branch:
 
    ```bash
-   git switch main
+   git switch <<your-work-branch>>
    ```
 
 3. Merge the branch into the main branch and then tag the commit with `s9` so your lecturer can find it:
@@ -1087,6 +1092,10 @@ In your final submission, you must include any files you created or modified. Th
    ```bash
    git push --tags
    ```
+
+4. Create a Pull request.
+5. Merge your PR.
+6. Delete your-work-branch
 
 4. Release your code on GitHub. You can do this by going to the releases section and selecting "Create a new release". Give the release a title ("Project Submission") and description. Then click "Publish release". Include a screenshot of the release:
 
